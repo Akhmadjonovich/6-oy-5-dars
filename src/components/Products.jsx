@@ -20,6 +20,7 @@ useEffect(() => {
   return (
     <div className='px-10 max-md:px-5 max-sm:px-4 mx-auto  container'>
         <section className=''>
+          
             <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Maxsulotlar:</h2>
             <div className='grid gap-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10'>
             {products.map((d) => (
