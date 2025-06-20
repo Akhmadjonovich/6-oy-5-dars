@@ -18,13 +18,13 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className='px-20 mx-auto container'>
-        <section>
-            <h2 className='text-2xl font-semibold my-5'>Maxsulotlar:</h2>
-            <div className='grid grid-cols-4 space-y-10'>
+    <div className='px-10 max-md:px-5 max-sm:px-4 mx-auto  container'>
+        <section className=''>
+            <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Maxsulotlar:</h2>
+            <div className='grid gap-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10'>
             {products.map((d) => (
 
-            <div className=" shadow-2xl w-[300px] bg-slate-200 rounded-lg h-[450px] overflow-hidden border-3 border-gray-300">
+            <div className=" shadow-2xl mx-auto  w-[300px] max-md:w-full hover:scale-105 transition-all  bg-slate-200 rounded-lg h-[450px] overflow-hidden border-3 border-gray-300">
             <div>
                 <img className="w-full p-1 h-[300px] object-cover cover rounded-t-lg" src={d.images[0]} alt={d.title}/>
             </div>
