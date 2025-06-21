@@ -16,6 +16,7 @@ useEffect(() => {
       console.error("Ma'lumot olishda xatolik:", error);
     }
   };
+  
   getProduct();
 }, []);
 
@@ -26,7 +27,7 @@ const [isOpen, setIsOpen] = useState(false);
   };
   return (
     <>
-    <div className='flex container mx-auto px-10 max-sm:px-5 justify-between items-center lg:hidden my-2'>
+    <div className='flex container mx-auto px-10 max-sm:px-5 justify-between items-center lg:hidden my-1'>
         <button className='py-1.5 px-2 bg-[#1E74C8] rounded-lg text-white max-md:text-sm max-sm:text-[10px] max-sm:rounded-sm'>
           Kategoriyalar
         </button>
@@ -66,17 +67,22 @@ const [isOpen, setIsOpen] = useState(false);
                     {products.map((d) => (
                     <SwiperSlide key={d.id} >
                         <div className='flex max-[500px]:flex-col items-center shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
-                            <div>
-                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src={d.images[0]} alt={d.title}/>
+                            <div className='flex items-center justify-between'>
+                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel.jpg" alt={d.title}/>
+                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel.jpg" alt={d.title}/>
                             </div>
                             <div className="p-5 max-w-[600px] w-full">
-                                <h1 className="name text-xl font-semibold">{d.title}</h1>
-                                <p>{d.description}</p>
-                                <h2  className="price font-bold text-orange-500 text-2xl">{d.price}</h2>
-                                <div className="items-center justify-between flex pt-2 pr-10">
-                                    <a href="./booking.html" className="text-white text-xl p-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Sotib olish</a>
-                                    <button className=" w-10 h-10 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all"><i className="fa fas fa-shopping-basket text-blue-700 "></i></button>
-                                </div>
+                              <h1 className="name text-xl font-bold">Tel model</h1>
+                              <ul className='text-sm font-semibold'>
+                                <li>Xotira: 128 GB</li>
+                                <li>Batareya: yaxshi</li>
+                                <li>Yili: 2024</li>
+                                <li className='text-orange-500'>Narxi: $200</li>
+                              </ul>
+                              <div className="items-center justify-between flex pt-2">
+                                  <a href="./booking.html" className="text-white text-lg py-0.5 px-3 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Aloqa</a>
+                                  <button className=" w-10 h-10 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all"><i class="fa fas fa-shopping-basket text-blue-700 "></i></button>
+                              </div>
                             </div>
                         </div>
                     </SwiperSlide>

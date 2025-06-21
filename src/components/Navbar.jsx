@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Navbar() {
 
+  const [isOpen, setIsOpen] = useState(false); 
+  
+    const toggleMenu = () => {
+      setIsOpen(!isOpen); 
+    };
+
   return(
     
-    <div>
+    <div className='relative'>
       <div className='px-20 max-xl:px-10 max-sm:px-5 pt-4 flex items-center justify-between container mx-auto'>
         <div className="flex gap-2 ml-[-15px]">
           <a className='text-4xl max-md:text-2xl flex items-center font-bold max-lg:text-3xl' href="">
-            <img className='w-17 max-md:w-14 p-0 mr-[-12px]' src="/main-logo.svg" alt="" />xro<span className='text-[#1E74C8] '>Market</span> </a>
+            <img className='w-17 max-md:w-14 p-0 mr-[-12px]' src="/main-logo2.png" alt="" />xro<span className='text-[#1E74C8] '>Market</span> </a>
         </div>
         <form className="flex items-center border max-sm:hidden border-blue-500 rounded-md overflow-hidden w-lg  max-2xl:w-md max-lg:w-90 max-md:w-70 max-sm:w-50 h-8 max-md:h-7 ">
             <input className="flex-1 p-2 outline-none max-sm:w-10" placeholder="Qidirish" type="search"/>
@@ -23,9 +29,16 @@ function Navbar() {
           <h2 className="text-xl font-semibold ">Tanlanganlar</h2>
           <i className="fa fas fa-shopping-basket fa-xl"></i>
         </a>
-        <button className='lg:hidden text-2xl max-md:text-xl'><i className='fa fa-bars'></i></button>
+        <button onClick={toggleMenu} className='lg:hidden text-2xl max-md:text-xl'><i className='fa fa-bars'></i></button>
       </div>
-      
+      {isOpen && <div className='bg-gray-100 h-screen absolute z-10 top-0 w-[80%]'>
+          <button onClick={toggleMenu} className='absolute right-0 p-2'>✖</button>
+          <ul className='p-7 *:hover:bg-gray-200  *:hover:scale-105 *:rounded-xl *:p-1'>
+            <li className='  text-lg font-semibold'><a className='flex items-center gap-1' href="#"><i className='fa fa-home'> </i>Home</a></li>
+            <li className='flex items-center gap-1 text-lg font-semibold mt-2'><i class="fa-solid fa-magnifying-glass "></i>Search</li>
+            <li className='flex items-center gap-1 text-lg font-semibold'><img src="/main-logo2.png" className='w-10 mx-[-10px]' alt="" />bout us</li>
+          </ul>
+      </div>}
     </div>
   )
 }
