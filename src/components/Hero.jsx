@@ -20,34 +20,36 @@ useEffect(() => {
   getProduct();
 }, []);
 
-const [isOpen, setIsOpen] = useState(false); 
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen); 
+const [isOpenK, setIsOpenK] = useState(false); 
+
+  const toggleKateg = () => {
+    setIsOpenK(!isOpenK); 
   };
   return (
     <>
     <div className='flex container mx-auto px-10 max-sm:px-5 justify-between items-center lg:hidden my-1'>
-        <button className='py-1.5 px-2 bg-[#1E74C8] rounded-lg text-white max-md:text-sm max-sm:text-[10px] max-sm:rounded-sm'>
+        <button onClick={toggleKateg} className='py-1.5 px-2 bg-[#1E74C8] rounded-lg text-white max-md:text-sm max-sm:text-[10px] max-sm:rounded-sm'>
           Kategoriyalar
         </button>
         <button className='py-1.5 px-2 bg-[#1E74C8] rounded-lg text-white max-md:text-sm max-sm:text-[10px] max-sm:rounded-sm'>
           Tanlanganlar
         </button>
       </div>
-    <div className='relative container mx-auto gap-5 flex justify-between items-center px-20 max-sm:px-4 max-xl:px-10  mt-10'>
+    <div className=' container mx-auto gap-5 flex justify-between items-center px-20 max-sm:px-4 max-xl:px-10  mt-10'>
       
-      <div className='bg-gray-400 w-full h-[400px] max-2xl:h-[350px] max-lg:hidden rounded-xl p-5'>
-        <h2 className='text-lg font-semibold mb-5'>Kategoriyalar:</h2>
-        <ul className='text-lg *:bg-gray-500 space-y-2 *:p-1 *:rounded-lg *:hover:scale-105 *:transition-all'>
-          <li>Xiomi & RedMi</li>
-          <li>Samsung</li>
-          <li>Iphone</li>
-          <li>Honor</li>
-          <li>Laptops</li> 
-          <li>komputers</li> 
+      { isOpenK && <div className='bg-gray-300 max-lg:bg-gray-100 relative max-lg:absolute z-10 left-0 max-lg:w-[80%] max-lg:h-screen max-lg:rounded top-0 w-full h-[400px] max-2xl:h-[350px] rounded-xl p-5'>
+        <button onClick={toggleKateg} className='absolute right-2 top-2 max-lg:flex hidden'>✖</button>
+        <h2 className='text-lg font-semibold max-lg:font-bold mb-5 max-sm:text-sm'>Kategoriyalar:</h2>
+        <ul className='text-lg max-sm:text-sm *:bg-gray-400 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
+          <li className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiomi & RedMi</li>
+          <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
+          <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>
+          <li className='flex items-center gap-2 p-1'><img src="/honor.png" className='w-8' alt="" />Honor</li>
+          <li className='flex items-center gap-2 p-1 py-2.5'><img src="/laptop.png" className='w-11 m-[-6px]' alt="" />Laptops</li> 
+          <li className='flex items-center gap-2 p-1'><img src="/comp.png" className='w-8' alt="" />Komputers</li> 
         </ul>
-      </div>
+      </div>}
         
         <section className="bg-slate-300 p-1 flex justify-between items-center  rounded-xl w-4xl max-2xl:w-3xl max-xl:w-2xl h-[400px] max-2xl:h-[350px] max-lg:w-full">
 
@@ -66,12 +68,12 @@ const [isOpen, setIsOpen] = useState(false);
                     
                     {products.map((d) => (
                     <SwiperSlide key={d.id} >
-                        <div className='flex max-[500px]:flex-col items-center shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
+                        <div className='flex max-[500px]:flex-col items-center  shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
                             <div className='flex items-center justify-between'>
-                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel.jpg" alt={d.title}/>
-                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel.jpg" alt={d.title}/>
+                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
+                                {/* <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel.jpg" alt={d.title}/> */}
                             </div>
-                            <div className="p-5 max-w-[600px] w-full">
+                            <div className="p-5 max-w-[600px] w-[60%]">
                               <h1 className="name text-xl font-bold">Tel model</h1>
                               <ul className='text-sm font-semibold'>
                                 <li>Xotira: 128 GB</li>

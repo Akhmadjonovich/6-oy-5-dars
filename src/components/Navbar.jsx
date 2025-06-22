@@ -33,7 +33,7 @@ function Navbar() {
       </div>
       {isOpen && <div className='bg-gray-100 h-screen absolute z-10 top-0 w-[80%]'>
           <button onClick={toggleMenu} className='absolute right-0 p-2'>✖</button>
-          <ul className='p-7 *:hover:bg-gray-200  *:hover:scale-105 *:rounded-xl *:p-1'>
+          <ul className='p-7 *:hover:bg-gray-200 *:transition-all  *:hover:scale-105 *:rounded-xl *:p-1'>
             <li className='  text-lg font-semibold'><a className='flex items-center gap-1' href="#"><i className='fa fa-home'> </i>Home</a></li>
             <li className='flex items-center gap-1 text-lg font-semibold mt-2'><i class="fa-solid fa-magnifying-glass "></i>Search</li>
             <li className='flex items-center gap-1 text-lg font-semibold'><img src="/main-logo2.png" className='w-10 mx-[-10px]' alt="" />bout us</li>

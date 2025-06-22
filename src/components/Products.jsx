@@ -18,6 +18,7 @@ useEffect(() => {
 }, []);
 
   return (
+    <>
     <div className='max-2xl:px-20 max-xl:px-10 max-lg:px-0 max-md:px-5  max-sm:px-4 mx-auto flex justify-center container'>
         <section className=''>
           
@@ -27,7 +28,7 @@ useEffect(() => {
 
             <div className=" shadow-2xl mx-auto max-sm:ml-[-3px] w-[300px] max-md:w-[105%] lg:w-full hover:scale-105 transition-all  bg-slate-200 rounded-lg h-[470px] max-md:h-[425px] overflow-hidden border-3 border-gray-300">
             <div>
-                <img className="w-full p-1 h-[300px] max-2xl:h-[270px] max-xl:h-[260px] max-lg:h-[250px] object-cover cover rounded-t-lg" src="/tel.jpg" alt={d.title}/>
+                <img className="w-full  bg-center p-3 h-[300px]  max-2xl:h-[270px] max-xl:h-[260px] max-lg:h-[250px]  object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
             </div>
             <div className="p-2 ">
                 <h1 className="name text-lg font-bold">Tel model</h1>
@@ -52,7 +53,13 @@ useEffect(() => {
 
             
         </section>
+
+        {/* Elon berish */}
     </div>
+    <div className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all' >
+      <h3>E'lon berish</h3>
+    </div>
+    </>
   )
 }
 
