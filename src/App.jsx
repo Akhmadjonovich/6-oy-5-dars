@@ -1,17 +1,22 @@
-import { useState } from 'react'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Products from './components/Products'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import SelectedItems from './pages/SelectedItems';
+import SelectedItemsProvider from './context/SelectedContext';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Navbar/>
-      <Hero/>
-      <Products/>
-    </div> 
+    <SelectedItemsProvider>
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/SelectedItems' element={<SelectedItems/>}/>
+          {/* <Route path='/post-ad' element={<PostAd/>}/> */}
+        </Routes>
+      </Router> 
+    </SelectedItemsProvider>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -26,17 +27,17 @@ function Navbar() {
             <h3 className="text-lg font-bold max-xl:hidden">+998 50 200 52 04</h3>
         </div> */}
         <a href="./savat.html" className="max-lg:hidden flex items-center gap-4 py-1.5 px-2 bg-[#1E74C8] rounded-xl *:text-white">
-          <h2 className="text-xl font-semibold ">Tanlanganlar</h2>
+          <Link to="/SelectedItems"><h2 className="text-xl font-semibold ">Tanlanganlar</h2></Link>
           <i className="fa fas fa-shopping-basket fa-xl"></i>
         </a>
         <button onClick={toggleMenu} className='lg:hidden text-2xl max-md:text-xl'><i className='fa fa-bars'></i></button>
       </div>
       {isOpen && <div className='bg-gray-100 h-screen absolute z-10 top-0 w-[80%]'>
           <button onClick={toggleMenu} className='absolute right-0 p-2'>✖</button>
-          <ul className='p-7 *:hover:bg-gray-200 *:transition-all  *:hover:scale-105 *:rounded-xl *:p-1'>
-            <li className='  text-lg font-semibold'><a className='flex items-center gap-1' href="#"><i className='fa fa-home'> </i>Home</a></li>
-            <li className='flex items-center gap-1 text-lg font-semibold mt-2'><i class="fa-solid fa-magnifying-glass "></i>Search</li>
-            <li className='flex items-center gap-1 text-lg font-semibold'><img src="/main-logo2.png" className='w-10 mx-[-10px]' alt="" />bout us</li>
+          <ul className='p-7 mt-2 *:hover:bg-gray-200 *:bg-white  *:transition-all  *:hover:scale-105 *:rounded-xl '>
+            <Link to="/"><li className='flex items-center gap-1 bg-white rounded-xl text-lg font-semibold p-2'><i className='fa fa-home'> </i>Home</li></Link>
+            <li className='flex items-center gap-1 text-lg font-semibold my-2 p-2'><i class="fa-solid fa-magnifying-glass "></i>Search</li>
+            <li className='flex items-center gap-1 text-lg font-semibold p-1'><img src="/main-logo2.png" className='w-10 mx-[-10px]' alt="" />bout us</li>
           </ul>
       </div>}
     </div>

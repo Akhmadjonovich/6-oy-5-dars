@@ -1,8 +1,8 @@
-
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios"
+import { SelectedContext } from '../context/SelectedContext';
 function Products() {
-
+let {selectedItems , toggleSelect} = useContext(SelectedContext)
 let [products, setProduct] = useState([]);
 
 useEffect(() => {
@@ -24,12 +24,13 @@ useEffect(() => {
           
             <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Qurilmalar:</h2>
             <div className='grid gap-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
-            {products.map((d) => (
-
-            <div className=" shadow-2xl mx-auto max-sm:ml-[-3px] w-[300px] max-md:w-[105%] lg:w-full hover:scale-105 transition-all  bg-slate-200 rounded-lg h-[470px] max-md:h-[425px] overflow-hidden border-3 border-gray-300">
-            <div>
+            {products.map((d) => {
+              let isSelected = selectedItems.find(i => i.id === d.id);
+              return(
+                <div key={d.id} className=" shadow-2xl mx-auto max-sm:ml-[-3px] w-[300px] max-md:w-[105%] lg:w-full hover:scale-105 transition-all  bg-slate-200 rounded-lg h-[470px] max-md:h-[425px] overflow-hidden border-3 border-gray-300">
+              <div>
                 <img className="w-full  bg-center p-3 h-[300px]  max-2xl:h-[270px] max-xl:h-[260px] max-lg:h-[250px]  object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
-            </div>
+              </div>
             <div className="p-2 ">
                 <h1 className="name text-lg font-bold">Tel model</h1>
                 <ul className='text-sm font-semibold'>
@@ -40,12 +41,16 @@ useEffect(() => {
                 </ul>
                 <div className="items-center justify-between flex pt-2">
                     <a href="./booking.html" className="text-white text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Aloqa</a>
-                    <button className=" w-8 h-8 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all"><i class="fa fas fa-shopping-basket text-blue-700 "></i></button>
+                    <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent'} w-8 h-8 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}><i class="fa fas fa-shopping-basket text-blue-700 "></i></button>
                 </div>
             </div>
             </div>
+              )
+            }
+              
+            
                 
-            ))}
+            )}
 
             
 
