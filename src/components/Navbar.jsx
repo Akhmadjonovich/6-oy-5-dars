@@ -33,7 +33,7 @@ function Navbar() {
         <button onClick={toggleMenu} className='lg:hidden text-2xl max-md:text-xl'><i className='fa fa-bars'></i></button>
       </div>
       {isOpen && <div className='bg-gray-100 h-screen absolute z-10 top-0 w-[80%]'>
-          <button onClick={toggleMenu} className='absolute right-0 p-2'>✖</button>
+          <button onClick={toggleMenu} className='absolute right-0 p-2 text-lg'>✖</button>
           <ul className='p-7 mt-2 *:hover:bg-gray-200 *:bg-white  *:transition-all  *:hover:scale-105 *:rounded-xl '>
             <Link to="/"><li className='flex items-center gap-1 bg-white rounded-xl text-lg font-semibold p-2'><i className='fa fa-home'> </i>Home</li></Link>
             <li className='flex items-center gap-1 text-lg font-semibold my-2 p-2'><i class="fa-solid fa-magnifying-glass "></i>Search</li>
