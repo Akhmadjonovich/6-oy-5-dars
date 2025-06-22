@@ -51,10 +51,10 @@ const [isOpenK, setIsOpenK] = useState(false);
           <li className='flex items-center gap-2 p-1'><img src="/comp.png" className='w-8' alt="" />Komputers</li> 
         </ul>
       </div>}
-      <div className='bg-gray-300 max-lg:hidden max-lg:bg-gray-100 relative max-lg:absolute z-10 left-0 max-lg:w-[80%] max-lg:h-screen max-lg:rounded top-0 w-full h-[400px] max-2xl:h-[350px] rounded-xl p-5'>
+      <div className='bg-[#E2E8F0] max-lg:hidden max-lg:bg-gray-100 relative max-lg:absolute z-10 left-0 max-lg:w-[80%] max-lg:h-screen max-lg:rounded top-0 w-full h-[400px] max-2xl:h-[350px] rounded-xl p-5'>
         <button onClick={toggleKateg} className='absolute right-2 top-2 max-lg:flex hidden'>✖</button>
         <h2 className='text-lg font-semibold max-lg:font-bold mb-5 max-sm:text-sm'>Kategoriyalar:</h2>
-        <ul className='text-lg max-sm:text-sm *:bg-gray-400 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
+        <ul className='text-lg max-sm:text-sm *:bg-gray-50 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
           <li className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiomi & RedMi</li>
           <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
           <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>
