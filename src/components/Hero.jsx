@@ -46,6 +46,7 @@ const [isOpenK, setIsOpenK] = useState(false);
         <button onClick={toggleKateg} className='absolute right-2 top-2 max-lg:flex hidden text-lg'>✖</button>
         <h2 className='text-lg font-semibold max-lg:font-bold mb-5 max-sm:text-[16px]'>Kategoriyalar:</h2>
         <ul className='text-lg max-sm:text-sm *:bg-gray-400 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
+          <li onClick={() => handleBrandChange("")} className='flex items-center gap-2 p-1'><img src="/main-logo2.png" className="w-10 m-[-4px]" alt="" />Hammasini ko'rish</li>
           <li onClick={() => handleBrandChange("Redmi")} className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiaomi & RedMi</li>
           <li onClick={() => handleBrandChange("Samsung")} className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
           <li onClick={() => handleBrandChange("Iphone")} className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>

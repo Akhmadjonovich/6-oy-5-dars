@@ -19,6 +19,9 @@ function Products({ selectedBrand, products }) {
             <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Qurilmalar:</h2>
             <div className='grid w-full gap-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
             {
+              filteredProducts.length === 0 ? (
+                <p className='text-center'>Bunday qurilma topilmadi...</p>
+              ): (
             filteredProducts.map((d) => {
               let isSelected = selectedItems.find(i => i.id === d.id);
               return(
@@ -42,10 +45,12 @@ function Products({ selectedBrand, products }) {
             </div>
               )
             }
+          ))
+          
+          }
               
             
                 
-            )}
 
             
 
