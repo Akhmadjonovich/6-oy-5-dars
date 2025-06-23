@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState } from 'react'
 import axios from "axios"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css"
 import { Autoplay,Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import { SelectedContext } from '../context/SelectedContext';
 
-const Hero = () => {
-    let [products, setProduct] = useState([]);
+const Hero = ({products , handleBrandChange}) => {
+  let {selectedItems , toggleSelect} = useContext(SelectedContext)
 
-useEffect(() => {
-  let getProduct = async () => {
-    try {
-      let response = await axios.get("https://dummyjson.com/products");
-      setProduct(response.data.products);  
-    } catch (error) {
-      console.error("Ma'lumot olishda xatolik:", error);
-    }
-  };
+//     let [products, setProduct] = useState([]);
+
+// useEffect(() => {
+//   let getProduct = async () => {
+//     try {
+//       let response = await axios.get("https://dummyjson.com/products");
+//       setProduct(response.data.products);  
+//     } catch (error) {
+//       console.error("Ma'lumot olishda xatolik:", error);
+//     }
+//   };
   
-  getProduct();
-}, []);
+//   getProduct();
+// }, []);
 
 
 const [isOpenK, setIsOpenK] = useState(false); 
@@ -43,24 +46,24 @@ const [isOpenK, setIsOpenK] = useState(false);
         <button onClick={toggleKateg} className='absolute right-2 top-2 max-lg:flex hidden text-lg'>✖</button>
         <h2 className='text-lg font-semibold max-lg:font-bold mb-5 max-sm:text-[16px]'>Kategoriyalar:</h2>
         <ul className='text-lg max-sm:text-sm *:bg-gray-400 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
-          <li className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiomi & RedMi</li>
-          <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
-          <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>
-          <li className='flex items-center gap-2 p-1'><img src="/honor.png" className='w-8' alt="" />Honor</li>
-          <li className='flex items-center gap-2 p-1 py-2.5'><img src="/laptop.png" className='w-11 m-[-6px]' alt="" />Laptops</li> 
-          <li className='flex items-center gap-2 p-1'><img src="/comp.png" className='w-8' alt="" />Komputers</li> 
+          <li onClick={() => handleBrandChange("Redmi")} className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiaomi & RedMi</li>
+          <li onClick={() => handleBrandChange("Samsung")} className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
+          <li onClick={() => handleBrandChange("Iphone")} className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>
+          <li onClick={() => handleBrandChange("Honor")} className='flex items-center gap-2 p-1'><img src="/honor.png" className='w-8' alt="" />Honor</li>
+          <li onClick={() => handleBrandChange("Laptop")} className='flex items-center gap-2 p-1 py-2.5'><img src="/laptop.png" className='w-11 m-[-6px]' alt="" />Laptops</li> 
+          <li onClick={() => handleBrandChange("Computer")} className='flex items-center gap-2 p-1'><img src="/comp.png" className='w-8' alt="" />Komputers</li> 
         </ul>
       </div>}
       <div className='bg-[#E2E8F0] max-lg:hidden max-lg:bg-gray-100 relative max-lg:absolute z-10 left-0 max-lg:w-[80%] max-lg:h-screen max-lg:rounded top-0 w-full h-[400px] max-2xl:h-[350px] rounded-xl p-5'>
         <button onClick={toggleKateg} className='absolute right-2 top-2 max-lg:flex hidden'>✖</button>
         <h2 className='text-lg font-semibold max-lg:font-bold mb-5 max-sm:text-sm'>Kategoriyalar:</h2>
-        <ul className='text-lg max-sm:text-sm *:bg-gray-50 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
-          <li className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiomi & RedMi</li>
-          <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
-          <li className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>
-          <li className='flex items-center gap-2 p-1'><img src="/honor.png" className='w-8' alt="" />Honor</li>
-          <li className='flex items-center gap-2 p-1 py-2.5'><img src="/laptop.png" className='w-11 m-[-6px]' alt="" />Laptops</li> 
-          <li className='flex items-center gap-2 p-1'><img src="/comp.png" className='w-8' alt="" />Komputers</li> 
+        <ul className='text-lg *:cursor-pointer max-sm:text-sm *:bg-gray-50 max-lg:*:bg-white  space-y-2   *:rounded-lg *:hover:scale-105 *:transition-all'>
+          <li onClick={() => handleBrandChange("")} className='flex items-center gap-2 p-1'><img src="/main-logo2.png" className="w-10 m-[-4px]" alt="" />Hammasini ko'rish</li>
+          <li onClick={() => handleBrandChange("Redmi")} className='flex items-center gap-2 p-1'><img src="/redmi.png" className='w-8' alt="" />Xiomi & RedMi</li>
+          <li onClick={() => handleBrandChange("Samsung")} className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/samsung.png" className='w-8' alt="" />Samsung</li>
+          <li onClick={() => handleBrandChange("Iphone")} className='flex items-center gap-2 p-1 max-sm:py-2.5'><img src="/iphone.png" className='w-12 m-[-8px]' alt="" />Iphone</li>
+          <li onClick={() => handleBrandChange("Honor")} className='flex items-center gap-2 p-1'><img src="/honor.png" className='w-8' alt="" />Honor</li>
+          <li onClick={() => handleBrandChange("Laptop")} className='flex items-center gap-2 p-1 py-2.5'><img src="/laptop.png" className='w-11 m-[-6px]' alt="" />Laptops</li> 
         </ul>
       </div>
         
@@ -79,30 +82,31 @@ const [isOpenK, setIsOpenK] = useState(false);
                 modules={[Autoplay, Navigation]}
                 >
                     
-                    {products.map((d) => (
-                    <SwiperSlide key={d.id} >
+                    {products.map((d) => {
+                      let isSelected = selectedItems.find(i => i.id === d.id);
+                    return (<SwiperSlide key={d.id} >
                         <div className='flex max-[500px]:flex-col items-center  shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
                             <div className='flex items-center justify-between'>
                                 <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
                                 <img className="w-full max-sm:flex hidden p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
                             </div>
                             <div className="p-5 max-w-[600px] w-[60%]">
-                              <h1 className="name text-xl font-bold">Tel model</h1>
+                              <h1 className="name text-xl font-bold">{d.title}</h1>
                               <ul className='text-sm font-semibold'>
-                                <li>Xotira: 128 GB</li>
+                                <li>Xotira: {d.memory}</li>
                                 <li>Batareya: yaxshi</li>
-                                <li>Yili: 2024</li>
+                                <li>Yili: {d.year}</li>
                                 <li className='text-orange-500'>Narxi: $200</li>
                               </ul>
-                              <div className="items-center justify-between flex pt-2">
-                                  <a href="./booking.html" className="text-white text-lg py-0.5 px-3 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Aloqa</a>
-                                  <button className=" w-10 h-10 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all"><i class="fa fas fa-shopping-basket text-blue-700 "></i></button>
+                              <div className=" items-center justify-between flex pt-2">
+                                <a href="./booking.html" className="text-white absolute bottom-5 left-5 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</a>
+                                <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent' } w-8 h-8 absolute bottom-5 right-5 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}><i class="fa fas fa-shopping-basket text-blue-700 "></i></button>
                               </div>
                             </div>
                         </div>
                     </SwiperSlide>
 
-))}
+)})}
                 </Swiper>
         
       
