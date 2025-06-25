@@ -20,7 +20,7 @@ function Products({ selectedBrand, products }) {
             <div className='grid w-full gap-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
             {
               filteredProducts.length === 0 ? (
-                <p className='text-center'>Bunday qurilma topilmadi...</p>
+                <p className='text-center mx-auto px-20'>Bunday qurilma topilmadi...</p>
               ): (
             filteredProducts.map((d) => {
               let isSelected = selectedItems.find(i => i.id === d.id);

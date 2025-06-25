@@ -14,6 +14,14 @@ const [isOpenK, setIsOpenK] = useState(false);
   const toggleKateg = () => {
     setIsOpenK(!isOpenK); 
   };
+
+  useEffect(() => {
+    if (isOpenK) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpenK]);
   return (
     <>
     <div className='flex container mx-auto px-10 max-sm:px-5 justify-between items-center lg:hidden my-1'>
@@ -33,7 +41,9 @@ const [isOpenK, setIsOpenK] = useState(false);
   {brands.map((brand, i) => (
     <li
       key={i}
-      onClick={() => handleBrandChange(brand.name)}
+      onClick={() => {handleBrandChange(brand.name);
+        toggleKateg()
+      }}
       className={`flex items-center gap-2 p-1 ${brand.py || ''}`}
     >
       <img
