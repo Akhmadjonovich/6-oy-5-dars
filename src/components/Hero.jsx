@@ -45,7 +45,6 @@ const [isOpenK, setIsOpenK] = useState(false);
     </li>
   ))}
 </ul>
-
       </div>}
       <div className='overflow-y-auto  bg-[#E2E8F0] max-lg:hidden max-lg:bg-gray-100 relative max-lg:absolute z-10 left-0 max-lg:w-[80%] max-lg:h-screen max-lg:rounded top-0 w-full h-[400px] max-2xl:h-[350px] rounded-xl p-5'>
         <button onClick={toggleKateg} className='absolute right-2 top-2 max-lg:flex hidden'>✖</button>
