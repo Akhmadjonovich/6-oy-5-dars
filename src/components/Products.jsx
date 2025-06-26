@@ -2,15 +2,18 @@ import React, { useContext, useEffect, useState } from 'react'
 import { SelectedContext } from '../context/SelectedContext';
 
 
-function Products({ selectedBrand, products }) {
+function Products({ selectedBrand, setSelectedBrand, products , searchTerm }) {
   let {selectedItems , toggleSelect} = useContext(SelectedContext)
-
-  const filteredProducts = selectedBrand
-    ? products.filter((p) =>
-        p.brand.toLowerCase() === selectedBrand.toLowerCase()
-      )
-    : products
-
+  const filteredProducts = products.filter((p) => {
+    const brandMatch = selectedBrand
+      ? p.brand?.toLowerCase() === selectedBrand.toLowerCase()
+      : true;
+  
+    const searchMatch = p.title?.toLowerCase().includes(searchTerm?.toLowerCase() || '');
+  
+    return brandMatch && searchMatch;
+  });
+  console.log(filteredProducts);
   return (
     <>
     <div className='max-2xl:px-20 max-xl:px-10 max-lg:px-0 max-md:px-5  max-sm:px-4 mx-auto flex justify-center container'>
@@ -39,7 +42,7 @@ function Products({ selectedBrand, products }) {
                 </ul>
                 <div className=" items-center justify-between flex pt-2">
                     <a href="./booking.html" className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</a>
-                    <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent' } w-8 h-8 absolute bottom-2 right-2 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}><i class="fa fas fa-shopping-basket text-blue-700 "></i></button>
+                    <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent' } w-8 h-8 absolute bottom-2 right-2 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}><i className="fa fas fa-shopping-basket text-blue-700 "></i></button>
                 </div>
             </div>
             </div>
