@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { SelectedContext } from '../context/SelectedContext';
+import { Link } from 'react-router-dom';
 
 
 function Products({ selectedBrand, setSelectedBrand, products , searchTerm }) {
@@ -41,7 +42,7 @@ function Products({ selectedBrand, setSelectedBrand, products , searchTerm }) {
                   <li className='text-orange-500'>Narxi: ${d.price}</li>
                 </ul>
                 <div className=" items-center justify-between flex pt-2">
-                    <a href="./booking.html" className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</a>
+                    <Link to={`/product/${d.id}`} ><button href="./booking.html" className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</button></Link>
                     <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent' } w-8 h-8 absolute bottom-2 right-2 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}><i className="fa fas fa-shopping-basket text-blue-700 "></i></button>
                 </div>
             </div>
