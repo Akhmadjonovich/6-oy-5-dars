@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-
+import { useLocation } from 'react-router-dom';
 function Navbar({searchTerm, setSearchTerm}) {
 
   const [isOpen, setIsOpen] = useState(false); 
@@ -16,6 +16,12 @@ function Navbar({searchTerm, setSearchTerm}) {
       }
     }, [isOpen]);
 
+
+    let location = useLocation()
+
+    useEffect(()=>{
+      setIsSearchOpen(false);
+    }, [location.pathname])
   return(
     
     <div className='relative'>
