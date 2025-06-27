@@ -100,7 +100,7 @@ const [isOpenK, setIsOpenK] = useState(false);
                         <div className='flex max-[500px]:flex-col items-center  shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
                             <div className='flex items-center justify-between'>
                                 <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
-                                <img className="w-full max-sm:flex hidden p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
+                                <img className="w-full max-[500px]:flex hidden p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
                             </div>
                             <div className="p-5 max-w-[600px] w-[60%]">
                               <h1 className="name text-xl font-bold">{d.title}</h1>
@@ -111,8 +111,8 @@ const [isOpenK, setIsOpenK] = useState(false);
                                 <li className='text-orange-500'>Narxi: $200</li>
                               </ul>
                               <div className=" items-center justify-between flex pt-2">
-                                <Link to={`/product/${d.id}`} ><button href="./booking.html" className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</button></Link>
-                                <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent' } w-8 h-8 absolute bottom-5 right-5 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}><i className="fa fas fa-shopping-basket text-blue-700 "></i></button>
+                                <Link to={`/product/${d.id}`} ><button className="text-white absolute bottom-2 left-5 text-lg py-0.5 px-1 bg-[#1E74C8] rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</button></Link>
+                                <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-400' : 'bg-transparent' } w-8 h-8 absolute bottom-2 right-5 rounded-full border border-[#1E74C8] cursor-pointer hover:scale-105 transition-all`}><i className="fa fas fa-shopping-basket text-blue-700 "></i></button>
                               </div>
                             </div>
                         </div>
