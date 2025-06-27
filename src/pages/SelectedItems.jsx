@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { SelectedContext } from '../context/SelectedContext'
+import { Link } from 'react-router-dom'
 
 const SelectedItems = () => {
     let {selectedItems} =useContext(SelectedContext)
@@ -12,14 +13,15 @@ const SelectedItems = () => {
             ):(
                 <div className='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-4 px-20 max-xl:px-10 max-sm:px-5 pt-4'>
             {selectedItems.map(item => (
-                <div key={item.id} className='border-2 h-100 border-gray-400 bg-gray-100 container p-3  rounded shadow-xl'>
-                    <img src="/tel2-1.png" alt={item.title} className="w-full h-[70%] object-cover mb-2" />
-                    <h1 className="name text-lg font-bold">Tel model</h1>
+                <div key={item.id} className='relative border-2 h-90 border-gray-400 bg-gray-100 container p-3  rounded shadow-xl'>
+                    <img src="/tel2-1.png" alt={item.title} className="w-full h-[50%] object-contain mb-2" />
+                    <h1 className="name text-lg font-bold">{item.title}</h1>
                     <ul className='text-sm font-semibold'>
-                      <li>Xotira: 128 GB</li>
-                      <li>Batareya: yaxshi</li>
-                      <li>Yili: 2024</li>
-                      <li className='text-orange-500'>Narxi: $200</li>
+                      <li>Xotira: {item.memory}</li>
+                      <li>Brand: {item.brand}</li>
+                      <li>Yili: {item.year}</li>
+                      <li className='text-orange-500'>Narxi: ${item.price}</li>
+                    <li><Link to={`/product/${item.id}`} ><button  className="text-white absolute mx-auto bottom-2 left-0 right-0 text-lg max-sm:text-sm py-0.5 w-[90%] px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</button></Link></li>
                     </ul>
                 </div>
             ))}
