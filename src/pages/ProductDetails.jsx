@@ -24,6 +24,8 @@ console.log(id);
         <p><strong>RAM:</strong> {product.ram}</p>
         <p><strong>Xotira:</strong> {product.memory}</p>
         <p><strong>Yil:</strong> {product.year}</p>
+        <p><strong>Tel:</strong> {product.phone}</p>
+        <p><strong>Nickname:</strong> {product.nickname}</p>
         <p className="mt-4 text-gray-700"><strong>Tavsif:</strong> {product.description}</p>
         <p className="mt-2 text-red-600"><strong>Kamchiligi:</strong> {product.downside}</p>
       </div>

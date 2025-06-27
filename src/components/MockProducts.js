@@ -9,7 +9,9 @@ const mockProducts = [
     year: 2023,
     thumbnail: "/img/samsung1.jpg",
     description: "O'rtacha byudjet uchun mo'ljallangan kuchli telefon. AMOLED ekran, yaxshi kamera.",
-    downside: "Plastik korpus, tez qizishi mumkin."
+    downside: "Plastik korpus, tez qizishi mumkin.",
+    phone: "998901234561",
+    nickname: "axon"
   },
   {
     id: 2,
@@ -21,7 +23,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/redmi1.jpg",
     description: "Yaxshi dizayn va kuchli batareya bilan keladi. AMOLED displey va stereo karnaylar.",
-    downside: "64GB xotira tez to‘lishi mumkin."
+    downside: "64GB xotira tez to‘lishi mumkin.",
+    phone: "998901234562",
+    nickname: "axon"
   },
   {
     id: 3,
@@ -33,7 +37,9 @@ const mockProducts = [
     year: 2021,
     thumbnail: "/img/iphone1.jpg",
     description: "Flagship iPhone modeli. Kuchli A14 chip, 5G qo‘llab-quvvatlaydi.",
-    downside: "Zaryadlovchi adapter qutiga qo‘shilmagan."
+    downside: "Zaryadlovchi adapter qutiga qo‘shilmagan.",
+    phone: "998901234563",
+    nickname: "axon"
   },
   {
     id: 4,
@@ -45,7 +51,9 @@ const mockProducts = [
     year: 2023,
     thumbnail: "/img/poco1.jpg",
     description: "Tez ishlaydigan ekran va katta batareyaga ega. Narxiga nisbatan yaxshi imkoniyatlar.",
-    downside: "Kamerasi sust bo‘lishi mumkin."
+    downside: "Kamerasi sust bo‘lishi mumkin.",
+    phone: "998901234564",
+    nickname: "axon"
   },
   {
     id: 5,
@@ -57,7 +65,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/vivo1.jpg",
     description: "Oddiy kundalik foydalanish uchun qulay model.",
-    downside: "Pastroq ekran piksellari va sekin protsessor."
+    downside: "Pastroq ekran piksellari va sekin protsessor.",
+    phone: "998901234565",
+    nickname: "axon"
   },
   {
     id: 6,
@@ -69,7 +79,9 @@ const mockProducts = [
     year: 2021,
     thumbnail: "/img/samsung2.jpg",
     description: "Flagship model, kuchli kamera tizimi va ishlash tezligi bilan ajralib turadi.",
-    downside: "Batareya uzoq vaqt yetmasligi mumkin."
+    downside: "Batareya uzoq vaqt yetmasligi mumkin.",
+    phone: "998901234566",
+    nickname: "axon"
   },
   {
     id: 7,
@@ -81,7 +93,9 @@ const mockProducts = [
     year: 2024,
     thumbnail: "/img/redmi2.jpg",
     description: "Yangi dizayn va 5G qo‘llab-quvvatlovi bilan bozorni zabt etmoqda.",
-    downside: "Yorug‘likda kamerasi biroz sust ishlaydi."
+    downside: "Yorug‘likda kamerasi biroz sust ishlaydi.",
+    phone: "998901234567",
+    nickname: "axon"
   },
   {
     id: 8,
@@ -93,7 +107,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/iphone2.jpg",
     description: "Compact dizayn, flagship kuch bilan. Qo‘lda tutish qulay.",
-    downside: "Kichik ekran ba'zilar uchun noqulay bo‘lishi mumkin."
+    downside: "Kichik ekran ba'zilar uchun noqulay bo‘lishi mumkin.",
+    phone: "998901234568",
+    nickname: "axon"
   },
   {
     id: 9,
@@ -105,7 +121,9 @@ const mockProducts = [
     year: 2023,
     thumbnail: "/img/poco2.jpg",
     description: "Yuqori darajadagi ishlash tezligi va narx-nisbati juda yaxshi.",
-    downside: "MIUI reklamalar bilan bezovta qilishi mumkin."
+    downside: "MIUI reklamalar bilan bezovta qilishi mumkin.",
+    phone: "998901234569",
+    nickname: "axon"
   },
   {
     id: 10,
@@ -117,7 +135,9 @@ const mockProducts = [
     year: 2023,
     thumbnail: "/img/vivo2.jpg",
     description: "Yaxshi kamera va dizayn bilan ajralib turadi.",
-    downside: "O‘yinlarda ba’zida lag bo‘lishi mumkin."
+    downside: "O‘yinlarda ba’zida lag bo‘lishi mumkin.",
+    phone: "998901234570",
+    nickname: "axon"
   },
   {
     id: 11,
@@ -129,7 +149,9 @@ const mockProducts = [
     year: 2023,
     thumbnail: "/img/samsung3.jpg",
     description: "Yangi foydalanuvchilar uchun byudjet telefon. One UI Core bilan ishlaydi.",
-    downside: "Kuchsiz protsessor va o‘rtacha kamera."
+    downside: "Kuchsiz protsessor va o‘rtacha kamera.",
+    phone: "998901234571",
+    nickname: "axon"
   },
   {
     id: 12,
@@ -141,7 +163,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/redmi3.jpg",
     description: "Eng arzon narxdagi telefonlardan biri. Katta ekran.",
-    downside: "Displey sifati va kamera o‘rtacha."
+    downside: "Displey sifati va kamera o‘rtacha.",
+    phone: "998901234572",
+    nickname: "axon"
   },
   {
     id: 13,
@@ -153,7 +177,9 @@ const mockProducts = [
     year: 2020,
     thumbnail: "/img/iphone3.jpg",
     description: "Kichik dizayn, kuchli protsessor bilan. Klassik Home tugmasi.",
-    downside: "Batareya kichik, kamerasi oddiy."
+    downside: "Batareya kichik, kamerasi oddiy.",
+    phone: "998901234573",
+    nickname: "axon"
   },
   {
     id: 14,
@@ -165,7 +191,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/poco3.jpg",
     description: "Narxiga nisbatan yaxshi ishlash tezligi va ekran sifati.",
-    downside: "Plastik korpus va o‘rtacha kamera."
+    downside: "Plastik korpus va o‘rtacha kamera.",
+    phone: "998901234574",
+    nickname: "axon"
   },
   {
     id: 15,
@@ -177,7 +205,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/vivo3.jpg",
     description: "Yaxshi kamera, zamonaviy dizayn. Kundalik foydalanish uchun a’lo.",
-    downside: "Kamerasi kechasi yaxshi ishlamaydi."
+    downside: "Kamerasi kechasi yaxshi ishlamaydi.",
+    phone: "998901234575",
+    nickname: "axon"
   },
   {
     id: 16,
@@ -189,7 +219,9 @@ const mockProducts = [
     year: 2022,
     thumbnail: "/img/samsung4.jpg",
     description: "Batareyasi kuchli va ekran hajmi katta.",
-    downside: "Protsessor sekin, o‘yinlar uchun mos emas."
+    downside: "Protsessor sekin, o‘yinlar uchun mos emas.",
+    phone: "998901234576",
+    nickname: "axon"
   },
   {
     id: 17,
@@ -201,7 +233,9 @@ const mockProducts = [
     year: 2021,
     thumbnail: "/img/redmi4.jpg",
     description: "Yaxshi ishlash tezligi, katta ekran, kuchli batareya.",
-    downside: "Og‘ir dizayn va MIUI’da reklama ko‘p."
+    downside: "Og‘ir dizayn va MIUI’da reklama ko‘p.",
+    phone: "998901234577",
+    nickname: "axon"
   },
   {
     id: 18,
@@ -213,7 +247,9 @@ const mockProducts = [
     year: 2020,
     thumbnail: "/img/iphone4.jpg",
     description: "Katta ekran va Face ID bilan qulaylik yaratadi. iOS tizimi doimiy yangilanadi.",
-    downside: "Past pikselli ekran (Liquid Retina)."
+    downside: "Past pikselli ekran (Liquid Retina).",
+    phone: "998901234578",
+    nickname: "axon"
   },
   {
     id: 19,
@@ -225,7 +261,9 @@ const mockProducts = [
     year: 2021,
     thumbnail: "/img/poco4.jpg",
     description: "Tez ishlaydigan 120Hz ekran va kuchli batareya.",
-    downside: "Qurilma og‘ir va kamera kechasi sust ishlaydi."
+    downside: "Qurilma og‘ir va kamera kechasi sust ishlaydi.",
+    phone: "998901234579",
+    nickname: "axon"
   },
   {
     id: 20,
@@ -237,7 +275,9 @@ const mockProducts = [
     year: 2021,
     thumbnail: "/img/vivo4.jpg",
     description: "Yoshlar va oddiy foydalanish uchun arzon variant.",
-    downside: "Sekin ishlash va eski dizayn."
+    downside: "Sekin ishlash va eski dizayn.",
+    phone: "998901234580",
+    nickname: "axon"
   }
 ];
 
