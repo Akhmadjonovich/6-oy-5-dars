@@ -19,7 +19,7 @@ function AdollorgaElon() {
 
     const message = `
 📱 *Yangi $1 e'lon buyurtmasi!*
-👤 Nickname: ${nickname}
+👤 Nickname: @${nickname}
 📞 Tel: ${phone}
 💵 $1 tolashga rozilik: ${agree ? '✅ Ha' : '❌ Yo‘q'}
 `;
@@ -48,13 +48,13 @@ function AdollorgaElon() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-10 p-5 bg-white shadow-xl rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">📢 $1 evaziga e'lon joylashtirish</h2>
+    <form onSubmit={handleSubmit} className="max-w-md max-sm:w-[95%] mx-auto mt-10 p-5 bg-white shadow-xl rounded-lg">
+      <h2 className="text-2xl max-sm:text-xl font-bold mb-4">📢 $1 evaziga e'lon joylashtirish</h2>
 
       <label className="block mb-2 font-semibold">Nickname</label>
       <input
         type="text"
-        className="w-full mb-4 px-3 py-2 border rounded"
+        className="w-full mb-4 px-3 py-2 border outline-none rounded"
         value={nickname}
         onChange={(e) => setNickname(e.target.value)}
         required
@@ -63,7 +63,7 @@ function AdollorgaElon() {
       <label className="block mb-2 font-semibold">Telefon raqam</label>
       <input
         type="tel"
-        className="w-full mb-4 px-3 py-2 border rounded"
+        className="w-full mb-4 px-3 py-2 border outline-none rounded"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
         placeholder="+998xxxxxxxxx"
@@ -84,7 +84,7 @@ function AdollorgaElon() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700"
+        className="w-full bg-[#1E74C8] text-white font-semibold py-2 rounded hover:bg-blue-700"
       >
         {loading ? 'Yuborilmoqda...' : "So'rovni yuborish"}
       </button>
