@@ -8,6 +8,8 @@ import BrandProvider, { BrandContext } from './context/BrandContext';
 import Qollanma from './pages/Qollanma';
 import mockProducts from './components/MockProducts';
 import ProductDetails from './pages/ProductDetails';
+import AdollorgaElon from './pages/AdollorgaElon';
+import FreeElon from './pages/FreeElon';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState(""); // BU QATOR KERAK
@@ -22,6 +24,8 @@ function App() {
             <Route path='/SelectedItems' element={<SelectedItems/>}/>
             <Route path='/qollanma' element={<Qollanma/>}/>
             <Route path='/product/:id' element={<ProductDetails/>}/>
+            <Route path='/adollorgaElon' element={<AdollorgaElon/>}/>
+            <Route path='/freeElon' element={<FreeElon/>}/>
           </Routes>
         </Router> 
       </BrandProvider>
