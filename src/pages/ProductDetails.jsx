@@ -5,7 +5,7 @@ import mockProducts from '../components/MockProducts'
 const ProductDetails = () => {
   const {id} = useParams()
   let product = mockProducts.find((p) => p.id.toString() === id)
-console.log(id);
+  
   if(!product){
     return <div className="text-center mt-10 text-red-500">Mahsulot topilmadi!</div>
   }

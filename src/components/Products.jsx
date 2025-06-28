@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { SelectedContext } from '../context/SelectedContext';
 import { Link } from 'react-router-dom';
+import ElonModel from '../pages/ElonModel';
 
 
 function Products({ selectedBrand, setSelectedBrand, products , searchTerm }) {
@@ -14,7 +15,9 @@ function Products({ selectedBrand, setSelectedBrand, products , searchTerm }) {
   
     return brandMatch && searchMatch;
   });
-  console.log(filteredProducts);
+  
+  let [isOpenModal, setIsOpenModal] = useState(false)
+  
   return (
     <>
     <div className='max-2xl:px-20 max-xl:px-10 max-lg:px-0 max-md:px-5  max-sm:px-4 mx-auto flex justify-center container'>
@@ -53,23 +56,24 @@ function Products({ selectedBrand, setSelectedBrand, products , searchTerm }) {
           
           }
               
-            
-                
-
-            
-
             </div>
-
             
         </section>
-
-        {/* Elon berish */}
     </div>
-    <div className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all' >
-      <h3>E'lon berish</h3>
-    </div>
+                
+       {
+        isOpenModal &&  <ElonModel isOpenModel={isOpenModal} setIsOpenModel={setIsOpenModal}/>
+       }
+    <button onClick={() => setIsOpenModal(!isOpenModal)} className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all' >
+      <h3 >E'lon berish</h3>
+    </button>
     </>
   )
 }
 
+            
 export default Products
+
+
+            
+
