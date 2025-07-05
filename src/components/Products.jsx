@@ -20,8 +20,8 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
 
   return (
     <>
-      <div className='max-2xl:px-20 max-xl:px-10  max-md:px-5  max-sm:px-4 mx-auto flex justify-center container'>
-        <section >
+      <div className=' flex justify-center container'>
+        <section className='px-20 max-xl:px-10  max-md:px-5  max-sm:px-4 mx-auto'>
           <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Qurilmalar:</h2>
           <div className='grid w-full gap-5 pb-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
             {filteredProducts.length === 0 ? (

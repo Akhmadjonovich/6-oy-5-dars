@@ -99,7 +99,7 @@ const [isOpenK, setIsOpenK] = useState(false);
                     return (<SwiperSlide key={d.id} >
                         <div className='flex max-[500px]:flex-col items-center  shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
                             <div className='flex items-center justify-between'>
-                                <img className="w-full p-1 aspect-[4/3] max-w-120 max-[500px]:h-40 object-cover cover rounded-t-lg" src={d.thumbnail} alt={d.title}/>
+                                <img className="w-full p-1 aspect-[4/3] max-w-120 max-[500px]:h-40 object-cover cover rounded-t-lg" src="/fn-kurs.jpg" alt={d.title}/>
                                 {/* <img className="w-[50%] max-[500px]:flex hidden p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src={d.thumbnail} alt={d.title}/> */}
                             </div>
                             {/* <div className="p-5 max-w-[600px] w-[60%]">
