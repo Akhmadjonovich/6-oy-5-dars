@@ -69,17 +69,17 @@ function FreeElon() {
 
   return (
     <form onSubmit={handleSubmit} className="p-5 max-w-xl mx-auto space-y-4">
-      <h2 className="text-xl font-semibold text-center">🆓 Bepul e'lon berish</h2>
+      <h2 className="text-xl font-semibold text-center">Bepul e'lon berish</h2>
 
-      <input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Toliq nomi" value={title} onChange={(e) => setTitle(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Narxi" value={price} onChange={(e) => setPrice(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="RAM" value={ram} onChange={(e) => setRam(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Memory" value={memory} onChange={(e) => setMemory(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Year" value={year} onChange={(e) => setYear(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Xotirasi" value={memory} onChange={(e) => setMemory(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Yili" value={year} onChange={(e) => setYear(e.target.value)} required className="border p-2 w-full rounded" />
       <input type="file" accept="image/*" onChange={(e) => setImageFile(e.target.files[0])} className="border p-2 w-full rounded" />
-      <input placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Downside" value={downside} onChange={(e) => setDownside(e.target.value)} className="border p-2 w-full rounded" />
+      <input placeholder="Tavsif" value={description} onChange={(e) => setDescription(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Kamchiligi" value={downside} onChange={(e) => setDownside(e.target.value)} className="border p-2 w-full rounded" />
       <input placeholder="Telefon" value={phone} onChange={(e) => setPhone(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} required className="border p-2 w-full rounded" />
 

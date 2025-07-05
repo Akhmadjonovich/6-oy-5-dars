@@ -14,7 +14,7 @@ const SelectedItems = () => {
                 <div className='grid grid-cols-4 pb-10 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-4 px-20 max-xl:px-10 max-sm:px-5 pt-4'>
             {selectedItems.map(item => (
                 <div key={item.id} className='relative border-2 h-90 border-gray-400 bg-gray-100 container p-3  rounded shadow-xl'>
-                    <img src="/tel2-1.png" alt={item.title} className="w-full h-[50%] object-contain mb-2" />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-[50%] object-contain mb-2" />
                     <h1 className="name text-lg font-bold">{item.title}</h1>
                     <ul className='text-sm font-semibold'>
                       <li>Xotira: {item.memory}</li>
