@@ -77,7 +77,7 @@ function FreeElon() {
       <input placeholder="RAM" value={ram} onChange={(e) => setRam(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Xotirasi" value={memory} onChange={(e) => setMemory(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Yili" value={year} onChange={(e) => setYear(e.target.value)} required className="border p-2 w-full rounded" />
-      <input type="file" accept="image/*" onChange={(e) => setImageFile(e.target.files[0])} className="border p-2 w-full rounded" />
+      <input type="file" accept="image/*" onChange={(e) => setImageFile(e.target.files[0])} className="border p-2 w-full rounded" required />
       <input placeholder="Tavsif" value={description} onChange={(e) => setDescription(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Kamchiligi" value={downside} onChange={(e) => setDownside(e.target.value)} className="border p-2 w-full rounded" />
       <input placeholder="Telefon" value={phone} onChange={(e) => setPhone(e.target.value)} required className="border p-2 w-full rounded" />
