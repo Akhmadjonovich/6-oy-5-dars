@@ -48,7 +48,8 @@ function AdollorgaElon() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md max-sm:w-[95%] mx-auto mt-10 p-5 bg-white shadow-xl rounded-lg">
+    <div className='h-screen w-full bg-gray-100 pt-10'>
+      <form onSubmit={handleSubmit} className="max-w-md max-sm:w-[95%] mx-auto mt-5 p-5 bg-white shadow-xl rounded-lg">
       <h2 className="text-2xl max-sm:text-xl font-bold mb-4">📢 $1 evaziga e'lon joylashtirish</h2>
 
       <label className="block mb-2 font-semibold">Nickname</label>
@@ -89,6 +90,7 @@ function AdollorgaElon() {
         {loading ? 'Yuborilmoqda...' : "So'rovni yuborish"}
       </button>
     </form>
+    </div>
   );
 }
 

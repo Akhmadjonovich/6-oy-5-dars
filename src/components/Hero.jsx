@@ -99,23 +99,35 @@ const [isOpenK, setIsOpenK] = useState(false);
                     return (<SwiperSlide key={d.id} >
                         <div className='flex max-[500px]:flex-col items-center  shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
                             <div className='flex items-center justify-between'>
-                                <img className="w-full p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
-                                <img className="w-full max-[500px]:flex hidden p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src="/tel2-1.png" alt={d.title}/>
+                                <img className="w-full p-1 aspect-[4/3] max-w-120 max-[500px]:h-40 object-cover cover rounded-t-lg" src={d.thumbnail} alt={d.title}/>
+                                {/* <img className="w-[50%] max-[500px]:flex hidden p-1 h-[300px] max-[500px]:h-40 object-cover cover rounded-t-lg" src={d.thumbnail} alt={d.title}/> */}
                             </div>
-                            <div className="p-5 max-w-[600px] w-[60%]">
+                            {/* <div className="p-5 max-w-[600px] w-[60%]">
                               <h1 className="name text-xl font-bold">{d.title}</h1>
                               <ul className='text-sm font-semibold'>
-                                <li>Xotira: {d.memory}</li>
-                                <li>Batareya: yaxshi</li>
+                                <li>Xotira: {d.memory}GB</li>
+                                <li>Ram: {d.ram}GB</li>
                                 <li>Yili: {d.year}</li>
-                                <li className='text-orange-500'>Narxi: $200</li>
+                                <li className='text-orange-500'>Narxi: $99</li>
                               </ul>
                               <div className=" items-center justify-between flex pt-2">
                                 <Link to={`/product/${d.id}`} ><button className="text-white absolute bottom-2 left-5 text-lg py-0.5 px-1 bg-[#1E74C8] rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</button></Link>
                                 <button onClick={() => toggleSelect(d)} className={` ${isSelected ? 'bg-blue-400' : 'bg-transparent' } w-8 h-8 absolute bottom-2 right-5 rounded-full border border-[#1E74C8] cursor-pointer hover:scale-105 transition-all`}><i className="fa fas fa-shopping-basket text-blue-700 "></i></button>
                               </div>
+                            </div> */}
+                            <div className='p-5'>
+                              <h2 className='text-xl font-bold max-md:text-lg'>👨‍💻 Yangi Frontend Kursi Start Olyapti!</h2>
+                              <p className='max-md:text-[12px]'>HTML va CSS ni noldan boshlab, amaliy mashg‘ulotlar orqali o‘rganamiz!</p>
+                              <h3 className='text-lg max-md:text-sm font-semibold max-sm:hidden'>Agar siz:</h3>
+                              <ul className='py-5 max-md:py-2 max-md:*:text-[12px] max-sm:hidden'>
+                                <li>Web sayt yasashni o‘rganmoqchi bo‘lsangiz</li>
+                                <li>Frontend dasturchi bo‘lishni xohlasangiz</li>
+                                <li>Noldan boshlayotgan bo‘lsangiz</li>
+                              </ul>
+                              <h4 className='font-bold'>Batafsil : 50 200 52 04 </h4>
                             </div>
                         </div>
+                        
                     </SwiperSlide>
 
 )})}

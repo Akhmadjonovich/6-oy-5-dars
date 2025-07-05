@@ -1,18 +1,23 @@
-import { useState } from 'react'; // BU MUHIM
-import Navbar from './components/Navbar'
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SelectedItems from './pages/SelectedItems';
 import SelectedItemsProvider from './context/SelectedContext';
-import BrandProvider, { BrandContext } from './context/BrandContext';
+import BrandProvider from './context/BrandContext';
 import Qollanma from './pages/Qollanma';
-import mockProducts from './components/MockProducts';
 import ProductDetails from './pages/ProductDetails';
 import AdollorgaElon from './pages/AdollorgaElon';
 import FreeElon from './pages/FreeElon';
+import Products from './components/Products';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState(""); // BU QATOR KERAK
+  const [searchTerm, setSearchTerm] = useState('');
+  const [products, setProducts] = useState([]); // BO‘SH MASSIV
+
+  const handleAddProduct = (newProduct) => {
+    setProducts(prev => [newProduct, ...prev]);
+  };
 
   return (
     <SelectedItemsProvider>
@@ -20,17 +25,18 @@ function App() {
         <Router>
           <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
           <Routes>
-            <Route path='/' element={<Home searchTerm={searchTerm} products={mockProducts} />}/> {/* searchTerm ni uzatyapmiz */}
-            <Route path='/SelectedItems' element={<SelectedItems/>}/>
-            <Route path='/qollanma' element={<Qollanma/>}/>
-            <Route path='/product/:id' element={<ProductDetails/>}/>
-            <Route path='/adollorgaElon' element={<AdollorgaElon/>}/>
-            <Route path='/freeElon' element={<FreeElon/>}/>
+            <Route path='/' element={<Home searchTerm={searchTerm} />} />
+            <Route path='/products' element={<Products products={products} />} />
+            <Route path='/SelectedItems' element={<SelectedItems />} />
+            <Route path='/qollanma' element={<Qollanma />} />
+            <Route path='/product/:id' element={<ProductDetails />} />
+            <Route path='/adollorgaElon' element={<AdollorgaElon />} />
+            <Route path='/freeElon' element={<FreeElon onAdd={handleAddProduct} />} />
           </Routes>
-        </Router> 
+        </Router>
       </BrandProvider>
     </SelectedItemsProvider>
-  )
+  );
 }
 
 export default App;

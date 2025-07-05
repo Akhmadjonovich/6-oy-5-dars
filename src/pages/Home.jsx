@@ -1,23 +1,34 @@
-import React, { useState } from 'react'
-import Hero from '../components/Hero'
-import Products from '../components/Products'
-import { BrandContext } from '../context/BrandContext'
+// src/pages/Home.jsx
+import React, { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import Hero from '../components/Hero';
+import Products from '../components/Products';
 
-import mockProducts from '../components/MockProducts'
+function Home({ searchTerm }) {
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [products, setProducts] = useState([]);
 
-const Home = ({searchTerm }) => {
-  const [selectedBrand, setSelectedBrand] = useState("");
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      const snapshot = await getDocs(collection(db, 'products'));
+      const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setProducts(items);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div>
-        <Hero products={mockProducts} handleBrandChange={setSelectedBrand}/>
-        <Products
-        products={mockProducts}
+      <Hero products={products} handleBrandChange={setSelectedBrand} />
+      <Products
+        products={products}
         searchTerm={searchTerm}
         selectedBrand={selectedBrand}
+        setSelectedBrand={setSelectedBrand}
       />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
