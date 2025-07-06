@@ -27,8 +27,9 @@ function Navbar({searchTerm, setSearchTerm}) {
     <div className='relative'>
       <div className='px-20 max-xl:px-10 max-sm:px-5 pt-4 flex items-center justify-between mx-auto container '>
         <div className="flex gap-2 ml-[-15px]">
-          <a className='text-4xl max-md:text-2xl flex items-center font-bold max-lg:text-3xl' href="">
-            <img className='w-17 max-md:w-14 p-0 mr-[-12px]' src="/main-logo2.png" alt="" />xro<span className='text-[#1E74C8] '>Market</span> </a>
+          <Link to="/"><div className='text-4xl max-md:text-2xl flex items-center font-bold max-lg:text-3xl'>
+            <img className='w-17 max-md:w-14 p-0 mr-[-12px]' src="/main-logo2.png" alt="" />xro<span className='text-[#1E74C8] '>Market</span> </div>
+          </Link>
         </div>
         <form onSubmit={(e) => e.preventDefault()} className="flex items-center border max-sm:hidden border-blue-500 rounded-md overflow-hidden w-lg  max-2xl:w-md max-lg:w-90 max-md:w-70 max-sm:w-50 h-8 max-md:h-7 ">
             <input className="flex-1 p-2 outline-none max-sm:w-10" placeholder="Qidirish" type="text"

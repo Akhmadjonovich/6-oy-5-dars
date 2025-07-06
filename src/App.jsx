@@ -10,6 +10,8 @@ import ProductDetails from './pages/ProductDetails';
 import AdollorgaElon from './pages/AdollorgaElon';
 import FreeElon from './pages/FreeElon';
 import Products from './components/Products';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -35,6 +37,7 @@ function App() {
           </Routes>
         </Router>
       </BrandProvider>
+      <ToastContainer />
     </SelectedItemsProvider>
   );
 }

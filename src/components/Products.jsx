@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { SelectedContext } from '../context/SelectedContext';
 import { Link } from 'react-router-dom';
 import ElonModel from '../pages/ElonModel';
+import { toast } from 'react-toastify';
+
 
 function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
   const { selectedItems, toggleSelect } = useContext(SelectedContext);
@@ -17,7 +19,41 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
   });
 
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isCooldown, setIsCooldown] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
 
+  useEffect(() => {
+    const savedTime = localStorage.getItem('lastElonTime');
+
+    if (savedTime) {
+      const lastTime = new Date(parseInt(savedTime));
+      const now = new Date();
+      const diff = 24 * 60 * 60 * 1000 - (now - lastTime); // 24 soat - o'tgan vaqt
+
+      if (diff > 0) {
+        setIsCooldown(true);
+        setTimeLeft(diff);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isCooldown) return;
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1000) {
+          clearInterval(interval);
+          setIsCooldown(false);
+          localStorage.removeItem('lastElonTime');
+          return 0;
+        }
+        return prev - 1000;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isCooldown]);
   return (
     <>
       <div className='mx-auto flex justify-center container'>
@@ -29,7 +65,6 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
               <p className='text-center mx-auto px-20'>Bunday qurilma topilmadi...</p>
             ) : (
               filteredProducts.map((d) => {
-                {console.log(d.thumbnail)}
                 
                 const isSelected = selectedItems.find(i => i.id === d.id);
                 return (
@@ -40,8 +75,8 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
                     <div className="p-2">
                       <h1 className="name text-lg font-bold max-sm:text-[16px]">{d.title}</h1>
                       <ul className='text-sm font-semibold'>
-                        <li>Xotira: {d.memory}</li>
-                        <li>Ram: {d.ram}</li>
+                        <li>Xotira: {d.memory} GB</li>
+                        <li>Ram: {d.ram} GB</li>
                         <li>Yili: {d.year}</li>
                         <li className='text-orange-500'>Narxi: ${d.price}</li>
                       </ul>
@@ -72,7 +107,23 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
       )}
 
       <button
-        onClick={() => setIsOpenModal(!isOpenModal)}
+        onClick={() => {
+          if (!isCooldown) {
+            setIsOpenModal(true);
+            localStorage.setItem('lastElonTime', Date.now().toString());
+            setIsCooldown(true);
+            setTimeLeft(24 * 60 * 60 * 1000); // 24 soat
+          } else {
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            toast.info(`⏳ Siz e'lonni ${hours} soat ${minutes} daqiqadan so‘ng berishingiz mumkin.`, {
+              position: 'top-center',
+              autoClose: 5000,
+            });
+          }
+        }}
+        
+        
         className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
       >
         <h3>E'lon berish</h3>

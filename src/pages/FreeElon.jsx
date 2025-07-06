@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 function FreeElon() {
   const [title, setTitle] = useState('');
@@ -58,6 +59,10 @@ function FreeElon() {
       });
 
       alert("✅ E'lon muvaffaqiyatli qo‘shildi!");
+      toast.success("✅ E'lon muvaffaqiyatli qo‘shildi!" ,{
+        position: "top-center",
+        autoClose: 5000,
+      })
       navigate('/');
     } catch (error) {
       console.error('❌ Xatolik:', error);

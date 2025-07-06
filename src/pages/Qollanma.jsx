@@ -12,11 +12,19 @@ const Qollanma = () => {
                 <li>Bog‘lanish uchun telefon raqamingiz yoki Telegram’dagi username’ingiz</li>
                 <li>Rasm yuklang va qisqacha tavsif yozing</li>
             </ul>
-
-            <h2 className='text-2xl font-bold pt-5 max-lg:text-xl max-sm:text-lg'>2. Xaridorlar mahsulotingizni ko‘radi</h2>
+            <h2 className='text-2xl font-bold max-lg:text-xl max-sm:text-lg py-2'>2. E’lon joylash bo'yicha 2 ta tarifi bor</h2>
+            <ul className='list-inside list-disc'>
+                <li className='font-semibold'>10,000 so'm lik tarif
+                    <p className='font-normal'> Atiga <span className='font-semibold text-orange-500'>10,000</span> so'm to‘lab, e’loningiz saytning yuqori qismida joylashgan swiperda 1 kun davomida doimiy aylanadi.
+                    Bu maxsus joy har kuni barcha foydalanuvchilar ko‘z oldida bo‘ladi.
+                    Natijada, e’loningiz ko‘proq ko‘rinadi, tezroq topiladi, va sotilish ehtimoli ancha yuqori bo‘ladi.</p>
+                </li>
+                <li className='font-semibold'>Bepul tarif <p className='font-normal'>Bu tarifda siz bir kunda bir marotaba mutlaqo tekinga 1 ta e'lon joylashingiz mumkin</p></li>
+            </ul>
+            <h2 className='text-2xl font-bold pt-5 max-lg:text-xl max-sm:text-lg'>3. Xaridorlar mahsulotingizni ko‘radi</h2>
             <p>Siz joylashtirgan e’lon saytning bosh sahifasida paydo bo‘ladi. Kimdir sizning e’loningizni ko‘rib, “Batafsil” tugmasini bossagina, raqamingiz yoki nickname’ingiz ularga ko‘rsatiladi.</p>
 
-            <h2 className='text-2xl font-bold pt-5 max-lg:text-xl max-sm:text-lg'>3. To‘g‘ridan-to‘g‘ri aloqa</h2>
+            <h2 className='text-2xl font-bold pt-5 max-lg:text-xl max-sm:text-lg'>4. To‘g‘ridan-to‘g‘ri aloqa</h2>
             <p>Xaridor sizga bevosita bog‘lanadi — qo‘ng‘iroq qiladi yoki Telegram orqali yozadi. Shunchaki kelishasiz va uchrashasiz. Saytda akkaunt ochish, login qilish yoki chatlashish keraksiz. Tez, oson va to‘g‘ri.</p>
         </div>
         <div>
