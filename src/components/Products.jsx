@@ -82,7 +82,7 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
                       </ul>
                       <div className="items-center justify-between flex pt-2">
                         <Link to={`/product/${d.id}`}>
-                          <button className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">
+                          <button className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-[#1E74C8] rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">
                             Batafsil
                           </button>
                         </Link>
@@ -111,21 +111,21 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
       )}
 
       <button
-        onClick={() => setIsOpenModal(!isOpenModal)
-          // if (!isCooldown) {
-          //   setIsOpenModal(true);
-          //   localStorage.setItem('lastElonTime', Date.now().toString());
-          //   setIsCooldown(true);
-          //   setTimeLeft(24 * 60 * 60 * 1000); // 24 soat
-          // } else {
-          //   const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-          //   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-          //   toast.info(`⏳ Siz e'lonni ${hours} soat ${minutes} daqiqadan so‘ng berishingiz mumkin.`, {
-          //     position: 'top-center',
-          //     autoClose: 5000,
-          //   });
-          // }
-        }
+        onClick={() => {
+          if (!isCooldown) {
+            setIsOpenModal(true);
+            localStorage.setItem('lastElonTime', Date.now().toString());
+            setIsCooldown(true);
+            setTimeLeft(24 * 60 * 60 * 1000); // 24 soat
+          } else {
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            toast.info(`⏳ Siz e'lonni ${hours} soat ${minutes} daqiqadan so‘ng berishingiz mumkin.`, {
+              position: 'top-center',
+              autoClose: 5000,
+            });
+          }
+        }}
         
         
         className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
