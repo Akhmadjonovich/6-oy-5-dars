@@ -77,7 +77,7 @@ function FreeElon() {
 
       <input placeholder="Toliq nomi" value={title} onChange={(e) => setTitle(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Narxi" value={price} onChange={(e) => setPrice(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Narxi (faqat Dollorda $)" value={price} onChange={(e) => setPrice(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="RAM" value={ram} onChange={(e) => setRam(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Xotirasi" value={memory} onChange={(e) => setMemory(e.target.value)} required className="border p-2 w-full rounded" />
       <input placeholder="Yili" value={year} onChange={(e) => setYear(e.target.value)} required className="border p-2 w-full rounded" />

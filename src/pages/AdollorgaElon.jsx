@@ -18,10 +18,10 @@ function AdollorgaElon() {
     setLoading(true);
 
     const message = `
-📱 *Yangi $1 e'lon buyurtmasi!*
+📱 *Yangi 10,000 e'lon buyurtmasi!*
 👤 Nickname: @${nickname}
 📞 Tel: ${phone}
-💵 $1 tolashga rozilik: ${agree ? '✅ Ha' : '❌ Yo‘q'}
+💵 10,000 tolashga rozilik: ${agree ? '✅ Ha' : '❌ Yo‘q'}
 `;
 
     const telegramBotToken = "8196467518:AAEG3Q0sLjXcxbLv9_QYhqZOwHv3w9tdW6s"; // O'ZGARTIR
@@ -50,7 +50,7 @@ function AdollorgaElon() {
   return (
     <div className='h-screen w-full bg-gray-100 pt-10'>
       <form onSubmit={handleSubmit} className="max-w-md max-sm:w-[95%] mx-auto mt-5 p-5 bg-white shadow-xl rounded-lg">
-      <h2 className="text-2xl max-sm:text-xl font-bold mb-4">📢 $1 evaziga e'lon joylashtirish</h2>
+      <h2 className="text-2xl max-sm:text-xl font-bold mb-4">📢 10,000 evaziga e'lon joylashtirish</h2>
 
       <label className="block mb-2 font-semibold">Nickname</label>
       <input
