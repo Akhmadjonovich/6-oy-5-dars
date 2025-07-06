@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { SelectedContext } from '../context/SelectedContext';
 import { Link } from 'react-router-dom';
 import ElonModel from '../pages/ElonModel';
+import { toast } from 'react-toastify';
 
 function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
   const { selectedItems, toggleSelect } = useContext(SelectedContext);
@@ -97,12 +98,14 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
                       </ul>
                       <div className="items-center justify-between flex pt-2">
                         <Link to={`/product/${d.id}`}>
-                          <button className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">
+                          <button className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-[#1E74C8] rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">
                             Batafsil
                           </button>
                         </Link>
                         <button
-                          onClick={() => toggleSelect(d)}
+                          onClick={() => {toggleSelect(d), toast.info("Gatjet TANLANGANLAR bo'limiga qo'shildi", {
+                            position: "top-center"
+                          })}}
                           className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent'} w-8 h-8 absolute bottom-2 right-2 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}
                         >
                           <i className="fa fas fa-shopping-basket text-blue-700"></i>
@@ -130,7 +133,7 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
             setTimeLeft(24 * 60 * 60 * 1000);
           }
         }}
-        className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
+        className='fixed z-30 bottom-10 right-10 max-sm:bottom-5 max-sm:right-5 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
         disabled={isCooldown}
       >
         {isCooldown ? (
