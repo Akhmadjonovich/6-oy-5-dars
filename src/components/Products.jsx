@@ -133,7 +133,7 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
             setTimeLeft(24 * 60 * 60 * 1000);
           }
         }}
-        className='fixed z-30 bottom-10 right-10 max-sm:bottom-5 max-sm:right-5 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
+        className='fixed z-30 bottom-10 right-10 max-sm:bottom-7 max-sm:right-7 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
         disabled={isCooldown}
       >
         {isCooldown ? (
