@@ -32,7 +32,7 @@ function FreeElon() {
         const formData = new FormData();
         formData.append('image', imageFile);
 
-        const res = await fetch('http://localhost:5000/upload', {
+        const res = await fetch('https://axromarkerbackend.onrender.com/upload', {
           method: 'POST',
           body: formData,
         });
