@@ -58,15 +58,14 @@ function FreeElon() {
         createdAt: Timestamp.now(),
       });
 
-      alert("✅ E'lon muvaffaqiyatli qo‘shildi!");
-      toast.success("✅ E'lon muvaffaqiyatli qo‘shildi!" ,{
+      toast.success(" E'lon muvaffaqiyatli qo‘shildi!" ,{
         position: "top-center",
         autoClose: 5000,
       })
       navigate('/');
     } catch (error) {
       console.error('❌ Xatolik:', error);
-      alert("❌ E'lonni saqlab bo‘lmadi. Keyinroq urinib ko‘ring.");
+      toast.error("❌ E'lonni saqlab bo‘lmadi. Keyinroq urinib ko‘ring.");
     } finally {
       setLoading(false);
     }
@@ -95,7 +94,15 @@ function FreeElon() {
       >
         {loading ? "Yuborilmoqda..." : "E'lon berish"}
       </button>
+      {
+      loading && (<div className='fixed px-20 max-xl:px-10 max-sm:px-5 inset-0 bg-black/30 items-center z-50'>
+          <div className='loader-wrap z-100'>
+            <div className='loader'></div>
+          </div>
+        </div>)
+      }
     </form>
+    
   );
 }
 

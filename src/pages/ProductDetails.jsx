@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Firestore init qilgan faylingiz
-
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -27,7 +26,9 @@ const ProductDetails = () => {
   }, [id]);
 
   if (!product) {
-    return <div className="text-center mt-10 text-red-500">Yuklanmoqda...</div>;
+    return <div className='loader-wrap'>
+      <div className='loader'></div>
+    </div>
   }
 
   return (
