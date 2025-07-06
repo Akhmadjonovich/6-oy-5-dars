@@ -17,8 +17,8 @@ const SelectedItems = () => {
                     <img src={item.thumbnail} alt={item.title} className="w-full h-[50%] object-contain mb-2" />
                     <h1 className="name text-lg font-bold">{item.title}</h1>
                     <ul className='text-sm font-semibold'>
-                      <li>Xotira: {item.memory}</li>
-                      <li>Brand: {item.brand}</li>
+                      <li>Xotira: {item.memory} GB</li>
+                      <li>Brand: {item.brand} GB</li>
                       <li>Yili: {item.year}</li>
                       <li className='text-orange-500'>Narxi: ${item.price}</li>
                     <li><Link to={`/product/${item.id}`} ><button  className="text-white absolute mx-auto bottom-2 left-0 right-0 text-lg max-sm:text-sm py-0.5 w-[90%] px-1 bg-[#1E74C8] rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">Batafsil</button></Link></li>
