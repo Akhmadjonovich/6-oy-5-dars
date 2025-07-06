@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { SelectedContext } from '../context/SelectedContext';
 import { Link } from 'react-router-dom';
 import ElonModel from '../pages/ElonModel';
-import { toast } from 'react-toastify';
-
 
 function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
   const { selectedItems, toggleSelect } = useContext(SelectedContext);
@@ -21,6 +19,7 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCooldown, setIsCooldown] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const savedTime = localStorage.getItem('lastElonTime');
@@ -28,7 +27,7 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
     if (savedTime) {
       const lastTime = new Date(parseInt(savedTime));
       const now = new Date();
-      const diff = 24 * 60 * 60 * 1000 - (now - lastTime); // 24 soat - o'tgan vaqt
+      const diff = 24 * 60 * 60 * 1000 - (now - lastTime);
 
       if (diff > 0) {
         setIsCooldown(true);
@@ -54,6 +53,24 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
 
     return () => clearInterval(interval);
   }, [isCooldown]);
+
+  // ✅ Sahifani yuklashda loader
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 bg-white/70 flex items-center justify-center z-50">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className='mx-auto flex justify-center container'>
@@ -61,11 +78,9 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
           <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Qurilmalar:</h2>
           <div className='grid w-full gap-5 pb-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
             {filteredProducts.length === 0 ? (
-              
               <p className='text-center mx-auto px-20'>Bunday qurilma topilmadi...</p>
             ) : (
               filteredProducts.map((d) => {
-                
                 const isSelected = selectedItems.find(i => i.id === d.id);
                 return (
                   <div key={d.id} className="relative shadow-2xl mx-auto max-sm:ml-[-3px] w-full hover:scale-105 transition-all bg-slate-200 rounded-lg 2xl:h-[470px] h-[440px] max-md:h-[420px] max-sm:h-[340px] overflow-hidden border-3 border-gray-300">
@@ -82,16 +97,12 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
                       </ul>
                       <div className="items-center justify-between flex pt-2">
                         <Link to={`/product/${d.id}`}>
-                          <button className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-[#1E74C8] rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">
+                          <button className="text-white absolute bottom-2 left-2 text-lg py-0.5 px-1 bg-blue-500 rounded-lg cursor-pointer border border-transparent hover:bg-transparent hover:border-blue-600 hover:text-blue-600 hover:scale-105 transition-all">
                             Batafsil
                           </button>
                         </Link>
                         <button
-                          onClick={() => {toggleSelect(d),
-                            toast.info("Gadjet TANLANGANLAR bo'limiga qoshildi" ,{
-                              position: "top-center",
-                            })}
-                          }
+                          onClick={() => toggleSelect(d)}
                           className={` ${isSelected ? 'bg-blue-300' : 'bg-transparent'} w-8 h-8 absolute bottom-2 right-2 rounded-full border border-blue-600 cursor-pointer hover:scale-105 transition-all`}
                         >
                           <i className="fa fas fa-shopping-basket text-blue-700"></i>
@@ -116,21 +127,19 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
             setIsOpenModal(true);
             localStorage.setItem('lastElonTime', Date.now().toString());
             setIsCooldown(true);
-            setTimeLeft(24 * 60 * 60 * 1000); // 24 soat
-          } else {
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            toast.info(`⏳ Siz e'lonni ${hours} soat ${minutes} daqiqadan so‘ng berishingiz mumkin.`, {
-              position: 'top-center',
-              autoClose: 5000,
-            });
+            setTimeLeft(24 * 60 * 60 * 1000);
           }
         }}
-        
-        
         className='fixed z-30 bottom-10 right-10 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
+        disabled={isCooldown}
       >
-        <h3>E'lon berish</h3>
+        {isCooldown ? (
+          <h3>
+            Qoldi: {Math.floor(timeLeft / (1000 * 60 * 60))} soat {Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))} min
+          </h3>
+        ) : (
+          <h3>E'lon berish</h3>
+        )}
       </button>
     </>
   );
