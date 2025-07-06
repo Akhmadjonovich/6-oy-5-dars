@@ -9,7 +9,7 @@ const SelectedItems = () => {
         <h1 className='text-2xl font-bold text-center max-lg:text-xl max-sm:text-lg'>Tanlangan Gatgetlar:</h1>
         {
             selectedItems.length === 0 ?(
-                <p className='px-4 mt-50 text-center'>Hozircha hech narsa tanlanmagan</p>
+              <p className='px-4 mt-50 text-center'>Hozircha hech narsa tanlanmagan</p>
             ):(
                 <div className='grid grid-cols-4 pb-10 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-4 px-20 max-xl:px-10 max-sm:px-5 pt-4'>
             {selectedItems.map(item => (
