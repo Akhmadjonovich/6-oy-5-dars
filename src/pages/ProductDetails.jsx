@@ -41,8 +41,8 @@ const ProductDetails = () => {
           <h1 className='text-2xl font-bold pb-5 max-lg:text-xl'>{product.title}</h1>
           <p><strong>Brand:</strong> {product.brand}</p>
           <p><strong>Narxi:</strong> ${product.price}</p>
-          <p><strong>RAM:</strong> {product.ram}</p>
-          <p><strong>Xotira:</strong> {product.memory}</p>
+          <p><strong>RAM:</strong> {product.ram} GB</p>
+          <p><strong>Xotira:</strong> {product.memory} GB</p>
           <p><strong>Yil:</strong> {product.year}</p>
           <p><strong>Tel:</strong> {product.phone}</p>
           <p><strong>Nickname:</strong> {product.nickname}</p>

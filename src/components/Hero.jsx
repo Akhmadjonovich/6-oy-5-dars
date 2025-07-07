@@ -42,7 +42,8 @@ const [isOpenK, setIsOpenK] = useState(false);
     <li
       key={i}
       onClick={() => {handleBrandChange(brand.name);
-        toggleKateg()
+        toggleKateg();
+        toggleSelect()
       }}
       className={`flex items-center gap-2 p-1 ${brand.py || ''}`}
     >
