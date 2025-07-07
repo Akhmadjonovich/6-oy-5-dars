@@ -74,17 +74,17 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
 
   return (
     <>
-      <div className='mx-auto flex justify-center container'>
-        <section className='px-20 max-xl:px-10  max-md:px-5  max-sm:px-4'>
+      <div className='mx-auto flex  justify-between container'>
+        <section className='px-20  max-xl:px-10  max-md:px-5  max-sm:px-4'>
           <h2 className='text-2xl max-sm:text-xl ms:pl-5 font-semibold my-5'>Qurilmalar:</h2>
-          <div className='grid w-full gap-5 pb-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
+          <div className='grid w-full  gap-5 pb-5 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 mx-auto justify-between space-y-10 max-sm:space-y-2 max-md:space-y-5'>
             {filteredProducts.length === 0 ? (
               <p className='text-center mx-auto px-20'>Bunday qurilma topilmadi...</p>
             ) : (
               filteredProducts.map((d) => {
                 const isSelected = selectedItems.find(i => i.id === d.id);
                 return (
-                  <div key={d.id} className="relative shadow-2xl mx-auto max-sm:ml-[-3px] w-full hover:scale-105 transition-all bg-slate-200 rounded-lg 2xl:h-[470px] h-[440px] max-md:h-[420px] max-sm:h-[340px] overflow-hidden border-3 border-gray-300">
+                  <div key={d.id} className="relative  shadow-2xl mx-auto max-sm:ml-[-3px] w-full hover:scale-105 transition-all bg-slate-200 rounded-lg 2xl:h-[470px] h-[440px] max-md:h-[420px] max-sm:h-[340px] overflow-hidden border-3 border-gray-300">
                     <div>
                       <img className="w-full bg-center p-1 h-[300px] max-2xl:h-[270px] max-xl:h-[250px] max-lg:h-[250px] max-sm:h-[150px] object-cover rounded-t-lg" src={d.thumbnail} alt={d.title} />
                     </div>
