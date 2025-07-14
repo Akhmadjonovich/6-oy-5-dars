@@ -18,42 +18,7 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
   });
 
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isCooldown, setIsCooldown] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(0);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const savedTime = localStorage.getItem('lastElonTime');
-
-    if (savedTime) {
-      const lastTime = new Date(parseInt(savedTime));
-      const now = new Date();
-      const diff = 24 * 60 * 60 * 1000 - (now - lastTime);
-
-      if (diff > 0) {
-        setIsCooldown(true);
-        setTimeLeft(diff);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!isCooldown) return;
-
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1000) {
-          clearInterval(interval);
-          setIsCooldown(false);
-          localStorage.removeItem('lastElonTime');
-          return 0;
-        }
-        return prev - 1000;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [isCooldown]);
 
   // ✅ Sahifani yuklashda loader
   useEffect(() => {
@@ -125,24 +90,13 @@ function Products({ selectedBrand, setSelectedBrand, products, searchTerm }) {
       )}
 
       <button
-        onClick={() => {
-          if (!isCooldown) {
-            setIsOpenModal(true);
-            localStorage.setItem('lastElonTime', Date.now().toString());
-            setIsCooldown(true);
-            setTimeLeft(24 * 60 * 60 * 1000);
-          }
-        }}
+       
+        onClick={()=> setIsOpenModal(true)}
         className='fixed z-30 bottom-10 right-10 max-sm:bottom-7 max-sm:right-7 bg-[#1E74C8] text-white px-5 py-2 lg:text-2xl rounded-tl-2xl rounded-br-xl font-semibold shadow-2xl hover:scale-105 transition-all'
-        disabled={isCooldown}
+        
       >
-        {isCooldown ? (
-          <h3>
-            Qoldi: {Math.floor(timeLeft / (1000 * 60 * 60))} soat {Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))} min
-          </h3>
-        ) : (
-          <h3>E'lon berish</h3>
-        )}
+        
+        <h3>E'lon berish</h3>
       </button>
     </>
   );

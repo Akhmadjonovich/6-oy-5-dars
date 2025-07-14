@@ -79,7 +79,7 @@ function AdollorgaElon() {
           required
           onChange={(e) => setAgree(e.target.checked)}
         />
-        Men $1 to‘lashga roziman
+        Men  <span className='text-orange-500 px-1'> 10,000 </span> so'm to‘lashga roziman
       </label>
 
       <button

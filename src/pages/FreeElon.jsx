@@ -1,5 +1,5 @@
 // src/pages/FreeElon.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
@@ -18,6 +18,9 @@ function FreeElon() {
   const [phone, setPhone] = useState('');
   const [nickname, setNickname] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const [isCooldown, setIsCooldown] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
 
   const navigate = useNavigate();
 
@@ -70,35 +73,82 @@ function FreeElon() {
       setLoading(false);
     }
   };
+  
+useEffect(() => {
+    const savedTime = localStorage.getItem('lastElonTime');
 
+    if (savedTime) {
+      const lastTime = new Date(parseInt(savedTime));
+      const now = new Date();
+      const diff = 24 * 60 * 60 * 1000 - (now - lastTime);
+
+      if (diff > 0) {
+        setIsCooldown(true);
+        setTimeLeft(diff);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isCooldown) return;
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1000) {
+          clearInterval(interval);
+          setIsCooldown(false);
+          localStorage.removeItem('lastElonTime');
+          return 0;
+        }
+        return prev - 1000;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isCooldown]);
   return (
-    <form onSubmit={handleSubmit} className="p-5 max-w-xl mx-auto space-y-4">
+    <form onSubmit={handleSubmit} className="p-5 max-w-xl mx-auto space-y-4 my-5 shadow-xl bg-gray-100 rounded-2xl">
       <h2 className="text-xl font-semibold text-center">Bepul e'lon berish</h2>
 
-      <input placeholder="Toliq nomi" value={title} onChange={(e) => setTitle(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Narxi (faqat Dollorda $)" value={price} onChange={(e) => setPrice(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="RAM" value={ram} onChange={(e) => setRam(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Xotirasi" value={memory} onChange={(e) => setMemory(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Yili" value={year} onChange={(e) => setYear(e.target.value)} required className="border p-2 w-full rounded" />
-      <input type="file" accept="image/png, image/jpeg" onChange={(e) => setImageFile(e.target.files[0])} className="border p-2 w-full rounded" required/>
-      <input placeholder="Tavsif" value={description} onChange={(e) => setDescription(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Kamchiligi" value={downside} onChange={(e) => setDownside(e.target.value)} className="border p-2 w-full rounded" />
-      <input placeholder="Telefon" value={phone} onChange={(e) => setPhone(e.target.value)} required className="border p-2 w-full rounded" />
-      <input placeholder="Nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} required className="border p-2 w-full rounded" />
+      <input placeholder="Toliq nomi" value={title} onChange={(e) => setTitle(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Narxi (faqat Dollorda $)" value={price} onChange={(e) => setPrice(e.target.value)} required className="border outline-none p-2 w-full rounded" />
+      <input placeholder="RAM" value={ram} onChange={(e) => setRam(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Xotirasi" value={memory} onChange={(e) => setMemory(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Yili" value={year} onChange={(e) => setYear(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input type="file" accept="image/png, image/jpeg" onChange={(e) => setImageFile(e.target.files[0])} className="border p-2 w-full rounded outline-none" required/>
+      <input placeholder="Tavsif" value={description} onChange={(e) => setDescription(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Kamchiligi" value={downside} onChange={(e) => setDownside(e.target.value)} className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Telefon" value={phone} onChange={(e) => setPhone(e.target.value)} required className="border p-2 w-full rounded outline-none" />
+      <input placeholder="Nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} required className="border p-2 w-full rounded outline-none" />
 
       <button
+      onClick={() => {
+        if (!isCooldown) {
+          setIsOpenModal(true);
+          localStorage.setItem('lastElonTime', Date.now().toString());
+          setIsCooldown(true);
+          setTimeLeft(24 * 60 * 60 * 1000);
+        }
+      }}
         type="submit"
-        disabled={loading}
+        disabled={isCooldown}
         className="bg-blue-500 w-full text-white px-4 py-2 rounded hover:bg-blue-600 transition"
       >
-        {loading ? "Yuborilmoqda..." : "E'lon berish"}
+        {loading ? "Yuborilmoqda..." :""}
+        {isCooldown ? (
+          <h3>
+            Qoldi: {Math.floor(timeLeft / (1000 * 60 * 60))} soat {Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))} min
+          </h3>
+        ) : (
+          <h3>E'lon berish</h3>
+        )}
       </button>
       {
       loading && (<div className='fixed px-20 max-xl:px-10 max-sm:px-5 inset-0 bg-black/30 items-center z-50'>
           <div className='loader-wrap z-100'>
             <div className='loader'></div>
-          </div>
+          </div> 
         </div>)
       }
     </form>

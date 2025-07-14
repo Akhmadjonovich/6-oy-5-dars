@@ -53,7 +53,6 @@ const Qollanma = () => {
                 <li>Xaridor bilan faqat ishonchli joyda uchrashin</li>
                 <li>Pulni oldindan yubormang, mahsulotni ko‘rmaguncha to‘lamang.</li>
                 <li>Iloji bo‘lsa, naqd hisob-kitobni afzal biling.</li>
-                <li>Shubhali e’lonlar yoki foydalanuvchilarni bizga xabar bering.</li>
             </ul>
         </div>
         <div className='flex items-center justify-center pt-10 opacity-70'>
