@@ -24,7 +24,7 @@ function Navbar({searchTerm, setSearchTerm}) {
     }, [location.pathname])
   return(
     
-    <div className='relative'>
+    <div className='relative shadow-lg rounded-xl'>
       <div className='px-20 max-xl:px-10 max-sm:px-5 pt-4 flex items-center justify-between mx-auto container '>
         <div className="flex gap-2 ml-[-15px]">
           <Link to="/"><div className='text-4xl max-md:text-2xl flex items-center font-bold max-lg:text-3xl'>
