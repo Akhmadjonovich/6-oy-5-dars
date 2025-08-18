@@ -24,7 +24,7 @@ const [isOpenK, setIsOpenK] = useState(false);
   }, [isOpenK]);
   return (
     <>
-    <div className='flex container mx-auto px-10 max-sm:px-5 justify-between items-center lg:hidden my-1'>
+    <div className='flex container mx-auto px-10 mt-3 max-sm:px-5 justify-between items-center lg:hidden my-1'>
         <button onClick={toggleKateg} className='py-1.5 px-2 bg-[#1E74C8] rounded-lg text-white max-md:text-sm max-sm:text-[10px] max-sm:rounded-sm'>
           Kategoriyalar
         </button>
@@ -94,7 +94,7 @@ const [isOpenK, setIsOpenK] = useState(false);
                 modules={[Autoplay, Navigation]}
                 >
                     
-                    {products.map((d) => {
+                    {products?.map((d) => {
                       let isSelected = selectedItems.find(i => i.id === d.id);
                     return (<SwiperSlide key={d.id} >
                         <div className='flex max-[500px]:flex-col items-center  shadow-2xl w-full bg-slate-200 rounded-lg h-[395px] max-2xl:h-[345px] overflow-hidden border-3 border-gray-300'>
