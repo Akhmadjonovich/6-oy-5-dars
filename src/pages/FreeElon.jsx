@@ -21,7 +21,7 @@ function FreeElon() {
 
   const [isCooldown, setIsCooldown] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
-
+let [IsOpenModal, setIsOpenModal] = useState(false)
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {

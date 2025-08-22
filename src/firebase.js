@@ -4,12 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyBrI6e4yxIAko-p42I2kTMCRoJ7JRLNKjM",
   authDomain: "axromarket.firebaseapp.com",
   projectId: "axromarket",
-  storageBucket: "axromarket.appspot.com",
-  messagingSenderId: "YOUR_MSG_ID",
-  appId: "YOUR_APP_ID"
+  storageBucket: "axromarket.firebasestorage.app",
+  messagingSenderId: "730838976590",
+  appId: "1:730838976590:web:0392c0f68c2d2543125b1f",
+  measurementId: "G-X6X406R5KK"
 };
 
 const app = initializeApp(firebaseConfig);
